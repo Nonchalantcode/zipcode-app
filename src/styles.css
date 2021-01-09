@@ -1,3 +1,107 @@
-.selected {
-    background-color: yellow;
-}
+body {
+    background-color: #fff5f5;
+  }
+  
+  #root {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #fdfadf;
+    padding-top: 15px;
+    padding-bottom: 200px;
+    border: 2px solid #666;
+    border-radius: 6px;
+  }
+  
+  .main-heading {
+    text-align: center;
+  }
+  
+  .app {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+    padding-top: 15px;
+    padding-bottom: 15px;
+  }
+  .app .inputs input {
+    padding: 15px;
+    border-radius: 3px;
+    display: inline-block;
+    margin-right: 6px;
+    border: 1px solid #666;
+    font-weight: 600;
+    font-size: 18px;
+  }
+  .app .inputs input:active, .app .inputs input:focus, .app .inputs input:hover {
+    border: 1px solid #17cf17;
+  }
+  .app .inputs button {
+    border: none;
+    padding: 15px;
+    min-width: 100px;
+    background-color: #000;
+    color: #fff;
+    font-weight: 600;
+    font-size: 18px;
+    transition: 0.25s background-color;
+  }
+  .app .inputs button:hover, .app .inputs button:focus {
+    background-color: #17cf17;
+    cursor: pointer;
+  }
+  .app .suggestions {
+    background-color: #fff;
+  }
+  .app .suggestions ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  .app .suggestions ul li {
+    padding: 7px;
+    margin: 8px 0;
+    background-color: #fff;
+    border-bottom: 1px solid #ccc;
+    cursor: pointer;
+    transition: 0.25s background-color;
+  }
+  .app .suggestions ul li.selected {
+    background-color: #17cf17;
+    color: #fff;
+    font-weight: 600;
+  }
+  .app .suggestions ul li:hover, .app .suggestions ul li:active {
+    background-color: #ccc;
+  }
+  .app .zip-info .info-panel .heading {
+    margin-top: 0;
+  }
+  .app .zip-info .info-panel .info {
+    background-color: #fff;
+    padding: 3px 15px;
+    margin-bottom: 4px;
+    border: 1px solid #666;
+  }
+  .app .zip-info .info-panel .info > p {
+    margin: 5px;
+  }
+  .app .zip-info .info-panel .info > p .info-prop {
+    text-transform: capitalize;
+    min-width: 155px;
+    display: inline-block;
+    font-weight: 600;
+  }
+  
+  @media (min-width: 992px) {
+    .app {
+      flex-direction: row;
+      align-items: initial;
+      justify-content: center;
+    }
+    .app form,
+  .app .zip-info {
+      margin: 0 30px;
+    }
+  }

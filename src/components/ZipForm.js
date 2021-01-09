@@ -75,7 +75,7 @@ const ZipForm = ({
 						suggestions.map((item, index) => {
                         return <li 
                                     key={ uuidv4() } 
-                                    className={`${index === suggestionIndex ? 'selected' : ''}`} 
+                                    className={`${index === suggestionIndex ? 'selected suggestion' : 'suggestion'}`} 
                                     onClick={() => handleSuggestionClick(item.trim())}>
 									{ item }
 								</li> 

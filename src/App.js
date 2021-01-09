@@ -46,20 +46,22 @@ const App = () => {
 
   return (
     <>
-      <h1>Zip code application</h1>
-      <ZipForm 
-        placeholder="Enter a 5-digit zipcode" 
-        inputText={zipCode} 
-        suggestions={suggestions}
-        changeHandler={zipCode => changeHandler(zipCode)}
-        submitHandler={requestZipcodeInfo}
-        resetHandler={resetHandler} />
-      <div className="zip-info">
-        {
-          zipCodeInfo === null 
-            ? zipCodeInfo
-            : zipCodeInfo.error ? <ErrorPanel message={zipCodeInfo.message} /> : <ZipInfoPanel zipCode={zipCode} zipCodeInfo={zipCodeInfo} />
-        }
+      <h1 class="main-heading">Zip code application</h1>
+      <div className="app">
+        <ZipForm 
+          placeholder="Enter a 5-digit zipcode" 
+          inputText={zipCode} 
+          suggestions={suggestions}
+          changeHandler={zipCode => changeHandler(zipCode)}
+          submitHandler={requestZipcodeInfo}
+          resetHandler={resetHandler} />
+        <div className="zip-info">
+          {
+            zipCodeInfo === null 
+              ? zipCodeInfo
+              : zipCodeInfo.error ? <ErrorPanel message={zipCodeInfo.message} /> : <ZipInfoPanel zipCode={zipCode} zipCodeInfo={zipCodeInfo} />
+          }
+        </div>
       </div>
     </>
   )
