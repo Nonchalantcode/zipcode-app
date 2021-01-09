@@ -9,4 +9,11 @@ const getZipcodeInfo = (zipCode) => {
             .catch(err => ({...err.response.data, error: true}))
 }
 
-export default { getZipcodeInfo }
+const getZipcodeSuggestions = (zipStr) => {
+    return axios
+            .get(`${baseURL}/suggestions/${zipStr}`)
+            .then(response => response)
+            .catch(err => ({...err.response.data, error: true}))
+}
+
+export default { getZipcodeInfo, getZipcodeSuggestions }
