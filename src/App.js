@@ -1,32 +1,41 @@
 import React, { useState } from 'react'
 import ErrorPanel from './components/ErrorPanel'
+import ZipForm from './components/ZipForm'
 import ZipInfoPanel from './components/ZipInfoPanel'
 import service from './services/service'
+
+const noop = () => {}
 
 const App = () => {
   let [zipCode, setZipCode] = useState('')
   let [zipCodeInfo, setZipCodeInfo] = useState(null)
 
-  const changeHandler = ({ target: { value }}) => {
-    setZipCode(value)
+  const changeHandler = zipCode => {
+    setZipCode(zipCode)
+    zipCode.length === 5 
+      ? requestZipcodeInfo(zipCode) 
+      : noop()
   }
 
-  const submitHandler = async (ev) => {
-    ev.preventDefault()
+  const requestZipcodeInfo = async (zipCode) => {
     let info = await service.getZipcodeInfo(zipCode)
     info.error ? setZipCodeInfo(info) : setZipCodeInfo(info.data)
   }
 
-  const resetHandler = () => setZipCode('')
+  const resetHandler = () => {
+    setZipCode('')
+    setZipCodeInfo(null)
+  }
 
   return (
     <>
       <h1>Zip code application</h1>
-      <form onSubmit={submitHandler} onReset={resetHandler}>
-        <input type="text" value={ zipCode } onChange={changeHandler} />
-        <button type="submit">Search</button>
-        <button type="reset">Reset</button>
-      </form>
+      <ZipForm 
+        placeholder="Enter a 5-digit zipcode" 
+        inputText={zipCode} 
+        onChange={zipCode => changeHandler(zipCode)}
+        onSubmit={requestZipcodeInfo}
+        resetHandler={resetHandler} />
       <div className="zip-info">
         {
           zipCodeInfo === null 
