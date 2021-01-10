@@ -93,6 +93,14 @@ body {
     display: inline-block;
     font-weight: 600;
   }
+
+  .error-panel h3 {
+    margin: 0;
+    padding: 15px;
+    background-color: #f19737;
+    color: #fff;
+    border-radius: 3px;
+  }
   
   @media (min-width: 992px) {
     .app {
