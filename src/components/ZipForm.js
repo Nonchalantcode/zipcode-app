@@ -64,6 +64,7 @@ const ZipForm = ({
                     value={inputText} 
                     name="zipcode"
                     maxLength="5"
+                    autoComplete="off"
                     onChange={updateInput}
                     onKeyDown={selectSuggestion}
                     placeholder={placeholder} />
