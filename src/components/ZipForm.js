@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import { v4 as uuidv4 } from 'uuid'
 
+const noop = () => {}
+
 const ZipForm = ({ 
     suggestions = [],
 	placeholder = '', 
@@ -47,7 +49,10 @@ const ZipForm = ({
                 }
                 submitHandler(suggestions[suggestionIndex])
                 setSuggestionIndex(-1)
+                break
             }
+            default: 
+                noop()
         }
     }
     

@@ -46,7 +46,7 @@ const App = () => {
 
   return (
     <>
-      <h1 class="main-heading">Zip code application</h1>
+      <h1 className="main-heading">Zip code application</h1>
       <div className="app">
         <ZipForm 
           placeholder="Enter a 5-digit zipcode" 
