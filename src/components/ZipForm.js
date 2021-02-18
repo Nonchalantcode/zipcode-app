@@ -47,7 +47,6 @@ const ZipForm = ({
                 if(suggestionIndex !== -1) {
                     changeHandler(suggestions[suggestionIndex])
                 }
-                submitHandler(suggestions[suggestionIndex])
                 setSuggestionIndex(-1)
                 break
             }
